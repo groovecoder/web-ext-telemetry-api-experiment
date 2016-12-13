@@ -25,5 +25,11 @@
                    em:minVersion="50.0"
                    em:maxVersion="*"/>
     </em:targetApplication>
+
+    <em:id>telemetry@experiments.addons.mozilla.org</em:id>
+    <em:name>Telemetry API</em:name>
+    <em:version>0.1</em:version>
+    <em:type>256</em:type>
+
   </Description>
 </RDF>

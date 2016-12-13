@@ -12,17 +12,12 @@ class API extends ExtensionAPI {
   getAPI (context) {
     return {
       telemetry: {
-        ping (id, object, eventName, eventTimestamp) {
+        event (category, method, object) {
           const payload = {
             timestamp: makeTimestamp(),
-            extension: id,
-            events: [
-              {
-                timestamp: makeTimestamp(eventTimestamp),
-                event: eventName,
-                object: object
-              }
-            ]
+            category: 'testpilot.blok',
+            method: method,
+            object: object
           }
           TelemetryController.submitExternalPing(
             TELEMETRY_WEBEXTENSION,

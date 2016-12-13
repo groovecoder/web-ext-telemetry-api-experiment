@@ -1,13 +1,36 @@
 [
   {
+    "namespace": "manifest",
+    "types": [{
+      "$extend": "Permission",
+      "choices": [{
+        "type": "string",
+        "enum": [ "telemetry" ]
+      }]
+    }]
+  },
+  {
     "namespace": "telemetry",
     "description": "Use the browser.telemetry API to send telemetry data to a telemetry service.",
-  
-   "permissions": ["experiments.telemetry"],
-   "properties": {
-     "network": {
-       "type": "object"
-     }
-   }
+    "permissions": ["telemetry"],
+    "functions": [{
+      "name": "event",
+      "type": "function",
+      "description": "Sends a ping to the Telemetry back-end.",
+      "parameters": [
+        {
+          "name": "category",
+          "type": "string"
+        },
+        {
+          "name": "method",
+          "type": "string"
+        },
+        {
+          "name": "object",
+          "type": "string"
+        }
+      ]
+    }]
   }
 ]
