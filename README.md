@@ -1,22 +1,36 @@
-This is a boilerplate extension for experiments. It *is not* designed to work out of the box. It *is* designed to be:
-* something you can clone from this repository
-* alter some key values
-* create a simple experiment that you can use elsewhere
+# Telemetry API Experiment
 
-To use (on Linux or OS X):
+[WebExtensions Experiment](https://webextensions-experiments.readthedocs.io) to implement a `browser.telemetry` API.
 
-```
-curl -L https://github.com/web-ext-experiments/boilerplate-experiment/archive/master.tar.gz | tar zxf -
-```
+## Why?
 
-This will download this repository without the git configuration so that you can use your own source control tool as needed.
+When Mozilla develops an add-on, it needs access to send data to the
+[Telemetry](https://wiki.mozilla.org/Telemetry) Pipeline, so we can measure its
+events and effects.
 
-Next steps, the order is not important:
-* `api.js` is where the code for your API is added.
-* `schema.json` describes how methods are going to be used. 
-* `install.rdf` is the registration of your experiment. The only thing you really need to change here is the `id`.
-* `LICENSE` choose a license of your liking.
-* `README.md` describe your API and tell us how to use it.
+## Requirements
 
-To do:
-* testing
+* Firefox Developer Edition or Nightly
+
+## Run it
+
+### Install via `.xpi` file:
+
+1. Build the `.xpi` file with `zip`: `zip web-ext-telemetry-api-experiment.xpi api.js install.rdf schema.json`
+
+2. Go to `about:addons`, click "Install Add-on From File...", and choose the
+   `.xpi` file
+
+### Load the `install.rdf` file:
+
+1. Go to `about:debugging`, click "Load Temporary Add-on", and choose the
+   `install.rdf` file
+
+### Tips
+
+When you are working on a WebExtension add-on that uses `browser.telemetry`, it
+helps to install this `.xpi` file into a special
+*web-ext-telemetry-api-experiment* Firefox profile, and then use [web-ext](https://github.com/mozilla/web-ext) to run
+your add-on with the profile.
+
+    web-ext run -p /path/to/Profiles/web-ext-telemetry-api-experiment --firefox-binary /path/to/aurora|nightly
