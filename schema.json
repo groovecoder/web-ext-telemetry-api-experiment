@@ -1,15 +1,5 @@
 [
   {
-    "namespace": "manifest",
-    "types": [{
-      "$extend": "Permission",
-      "choices": [{
-        "type": "string",
-        "enum": [ "telemetry" ]
-      }]
-    }]
-  },
-  {
     "namespace": "telemetry",
     "description": "Use the browser.telemetry API to send telemetry data to a telemetry service.",
     "permissions": ["telemetry"],
