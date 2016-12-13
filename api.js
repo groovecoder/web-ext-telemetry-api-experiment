@@ -1,5 +1,7 @@
-const { Services } = require('resource://gre/modules/Services.jsm')
-const { TelemetryController } = require('resource://gre/modules/TelemetryController.jsm')
+const {utils: Cu} = Components;
+
+Cu.import("resource://gre/modules/Services.jsm");
+Cu.import("resource://gre/modules/TelemetryController.jsm");
 
 const TELEMETRY_WEBEXTENSION = 'webextension'
 
