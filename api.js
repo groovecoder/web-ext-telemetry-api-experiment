@@ -6,7 +6,7 @@ Cu.import("resource://gre/modules/TelemetryController.jsm");
 const TELEMETRY_WEBEXTENSION = 'webextension'
 
 function makeTimestamp (time) {
-  const timestamp = typeof time !== 'undefined' ? time : Date.now()
+  const timestamp = time !== undefined ? time : Date.now()
   return Math.round((timestamp - Services.startup.getStartupInfo().process) / 1000)
 }
 
